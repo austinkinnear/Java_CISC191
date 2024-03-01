@@ -1,0 +1,20 @@
+Object Oriented Thinking UML by Austin Kinnear
+
+Class: 
+    Time
+
+Fields:
+    int hour
+    int minute
+    int second
+
+Constructors: 
+    Time()
+    Time(long elapseTime)
+    Time(int hours, int minutes, int seconds)
+
+Methods:
+    getHour() int
+    getMinute() int
+    getSecond() int
+    setTime(long elapseTime) void
