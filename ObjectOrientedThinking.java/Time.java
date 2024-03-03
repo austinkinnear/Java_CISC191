@@ -1,6 +1,6 @@
 /**
  * Author: Austin Kinnear, CISC 191 Intermediate Java Programming
- * Creating a Time clalculator which calculate the miliseconds from January 1, 1970 
+ * Object Oriented Thinking Project number 2 in CISC 191
  */
 public class Time {
     // hours, minutes and second private fields
