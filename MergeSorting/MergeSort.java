@@ -11,37 +11,36 @@ public class MergeSort {
             // Find the middle point
             int m = (l + r) / 2;
             
-            // Sort first and second halves
+            // Sort first and second halves recursively 
             sort(arr, l, m);
             sort(arr, m + 1, r);
             
-            // Merge the sorted halves
+            // Merges the sorted halves
             merge(arr, l, m, r);
         }
     }
     
-    // Function to merge the two halves arr[l..m] and arr[m+1..r]
+    // Function to merge the two halves
     void merge(int arr[], int l, int m, int r) {
-        int n1 = m - l + 1;
-        int n2 = r - m;
+        // Size of the left and right array
+        int n1 = m - l + 1; 
+        int n2 = r - m; 
 
-        // Create temp arrays
+        // Temporary arrays for left and right
         int L[] = new int[n1];
         int R[] = new int[n2];
 
-        // Copy data to temp arrays
+        // Copies data to the temporary left and right array
         for (int i = 0; i < n1; ++i)
             L[i] = arr[l + i];
         for (int j = 0; j < n2; ++j)
             R[j] = arr[m + 1 + j];
 
-        // Merge the temp arrays
-
-        // Initial indexes of first and second subarrays
+        // Initial indexes of the sub arrays
         int i = 0, j = 0;
-
-        // Initial index of merged subarray array
         int k = l;
+
+        // Merge the temporary arrays into orgional case
         while (i < n1 && j < n2) {
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
@@ -53,14 +52,14 @@ public class MergeSort {
             k++;
         }
 
-        // Copy remaining elements of L[] if any
+        // Copies remaining left array elements
         while (i < n1) {
             arr[k] = L[i];
             i++;
             k++;
         }
 
-        // Copy remaining elements of R[] if any
+        // Copies ramaining right array elements
         while (j < n2) {
             arr[k] = R[j];
             j++;
@@ -72,31 +71,30 @@ public class MergeSort {
     static void printArray(int arr[]) {
         int n = arr.length;
         for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
+            System.out.print(arr[i] + " "); 
         System.out.println();
     }
 
     // Driver method to take user input and sort
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter number of elements:");
+        System.out.print("Enter number of elements:");
         int n = scanner.nextInt();
         
-        int arr[] = new int[n];
-        System.out.println("Enter the elements:");
+        int arr[] = new int[n]; // Creates array of size n 
+
+        System.out.print("Enter the elements:");
         for (int i = 0; i < n; i++) {
             arr[i] = scanner.nextInt();
         }
-        
-        System.out.println("Given Array:");
-        printArray(arr);
 
+        System.out.print("Given Array:");
+        printArray(arr);
         MergeSort ob = new MergeSort();
         ob.sort(arr, 0, arr.length - 1);
 
         System.out.println("\nSorted array:");
         printArray(arr);
-        
         scanner.close();
     }
 }
