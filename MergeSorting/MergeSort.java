@@ -1,14 +1,15 @@
 /**
  * Author: Austin Kinnear, CISC 191 Intermediate Java Programming
  * Programming Project: Creating a merge sorting algorithm
+ * How does merge sort work? What is time complexity merge sort? Best case? Worst case?
  */
 import java.util.Scanner;
 
 public class MergeSort {
-    // Main function that sorts arr[l..r] using merge()
+    // Main function that sorts our integer array 
     void sort(int arr[], int l, int r) {
         if (l < r) {
-            // Find the middle point
+            // Finds the middle point
             int m = (l + r) / 2;
             
             // Sort first and second halves recursively 
@@ -75,7 +76,7 @@ public class MergeSort {
         System.out.println();
     }
 
-    // Driver method to take user input and sort
+    // Driver method for users input and sorting
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter number of elements:");
@@ -87,14 +88,16 @@ public class MergeSort {
         for (int i = 0; i < n; i++) {
             arr[i] = scanner.nextInt();
         }
-
-        System.out.print("Given Array:");
-        printArray(arr);
+        
+        // Creates an instance of the sort method then sorts
         MergeSort ob = new MergeSort();
         ob.sort(arr, 0, arr.length - 1);
 
-        System.out.println("\nSorted array:");
+        System.out.print("\nSorted array:");
         printArray(arr);
         scanner.close();
     }
 }
+
+// Test Data 8 elements
+// 2 9 5 4 8 1 6 7
